@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
         <meta charset="UTF-8">
-        <title>You Do part 2.</title>
+        <title>Results.</title>
 	</head>
     <body>
         <?php 
