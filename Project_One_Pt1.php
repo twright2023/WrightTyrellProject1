@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en-US">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
@@ -13,11 +12,11 @@
 
         <!-- TODO: Fix all bugs/poor practice in the form -->
 
-        <form action="Project_One_Pt1_sub.php" method="get" class="survey">
+        <form action="Project_One_Pt1_sub.php" method="post" class="survey">
             <div>
                 <fieldset>
                     <div>
-                        <legend>Information</legend>
+                        <h3>Information</h3>
                         <label for="name-input">Name: </label> <!--There was no name, you got a name now! So yay!-->
                         <input type="text" name="Name" id="name-input">
                     </div>
@@ -28,9 +27,9 @@
                     </div>
 
                     <div>
-                        <legend>Gender</legend> <!--I thought this was fine.-->
-                        <select name="gender" id="gender">
-                            <option value="m" required>Male</option>
+                        <h3>Gender</h3> <!--I thought this was fine.-->
+                        <select name="gender" id="gender" required size="4">
+                            <option value="m">Male</option>
                             <option value="f">Female</option>
                             <option value="nb">Nonbinary</option>
                             <option value="gf">Genderfluid</option>
@@ -55,21 +54,21 @@
                     </div>
 
                     <div>
-                        <legend>Scale to 1-100, how much do you miss these treats?</legend> <!--This was my first extra question.-->
+                        <h3>Scale to 1-100, how much do you miss these treats?</h3> <!--This was my first extra question.-->
                         <input type="number" name="ScaleToOneTen" id="scale" required>
                     </div>
 
                     <div>
-                        <legend>Share your experience</legend> <!--My second.-->
-                        <textarea id="experience" required>Share your experience with Hostess Sweet Rolls.
+                        <h3>Share your experience</h3> <!--My second.-->
+                        <textarea id="experience">Share your experience with Hostess Sweet Rolls.
                         </textarea>
                     </div>
 
                     <div>
-                        <legend>Random, silly question:</legend> <!--And this was made so I could have some fun and hopefully make someone smile.-->
+                        <h3>Random, silly question:</h3> <!--And this was made so I could have some fun and hopefully make someone smile.-->
                         <p>Welcome to The Salty Spitoon. On a scale of 1-10, how tough are ya?</p>
-                        <select name="tough" id="tough"> <!--This is just something silly I wanted to do-->
-                            <option value="1" required>1, I'm Spongebob!</option>
+                        <select name="tough" id="tough" required size="4"> <!--This is just something silly I wanted to do-->
+                            <option value="1">1, I'm Spongebob!</option>
                             <option value="2">2, I flinch at the slightest movement</option>
                             <option value="3">3, I'm kinda tough.</option>
                             <option value="4">4, I'm pretty tough, you know?</option>
