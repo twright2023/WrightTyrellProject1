@@ -5,13 +5,26 @@
         <title>Results.</title>
 	</head>
     <body>
+
         <?php 
-            $password = $_POST["password"]; 
+            $password = $_POST["Password"]; 
             if(strlen($password) <8) { 
-                print("<p>Your password isn't long enough!</p>"); 
+                print("<p>Your password isn't long enough! It must be at least 8 characters.</p>"); 
             } 
-            if($password == ""){ 
+            elseif (strlen($password) >100) { 
+                print("<p>You're not going to remember that, I promise you. Best change it.</p>"); 
+            }
+            elseif ($password == ""){ 
                 print("<p>You need to enter a password!</p>"); 
+            } 
+            elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
+                print("<p>Please have at least one number in your password!</p>");
+            }
+
+            if (!preg_match('/0-9/', $password)) {
+                print("");
+            } else {
+                print("<p>Please have at least one number in your password!</p>");
             }
         ?>
 
@@ -26,7 +39,7 @@
         ?>
 
 
-        <h2>Results are in.</h2> 
+        <h2>Results are in...</h2> 
         <?php 
             $name = $_POST["Name"];
             $email = $_POST["Email"];
