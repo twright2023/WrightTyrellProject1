@@ -10,9 +10,8 @@
         <h1>Bring Back Hostess Sweet Rolls</h1>
         <h2>We all know that the discontinuation of Hostess Sweet Rolls (Especially cherry) was an injustice! Band together to get this Survey/Petition signed!</h2>
 
-        <!-- TODO: Fix all bugs/poor practice in the form -->
-
         <form action="Project_One_Pt1_sub.php" method="post" class="survey">
+            <!-- get is not an effective method for this project, so I used post. I tried GET, but it did not work, and it is not a good idea to use it for a survey.-->
             <div>
                 <fieldset>
                     <div>
@@ -20,11 +19,13 @@
                         <label for="name-input">Name: </label> <!--There was no name, you got a name now! So yay!-->
                         <input type="text" name="Name" id="name-input">
                     </div>
+                    <!-- The text type was the best option. Email would be inappropriate but would work. Number would not work, unless your name is made of number characters.-->
 
                     <div>
                         <label for="birthdate-here">Age: </label> <!--I noticed the radio buttons were silly. And I thought a nice date would be much better.-->
                         <input type="date" name="Birthdate" id="birthdate-here">
                     </div>
+                    <!-- A text type would work, but it wouldn't be appropriate for a birthdate.-->
 
                     <div>
                         <h3>Gender</h3> <!--I thought this was fine.-->
@@ -37,6 +38,7 @@
                             <option value="o">Choose not to say/Other</option>
                         </select>
                     </div>
+                    <!-- Trying radio buttons would work well, but this current style worked best.-->
 
                     <div>
                         <label for="username-input">Username: </label> <!--I thought this was fine.-->
@@ -80,6 +82,7 @@
                             <option value="10">10, I ate a bowl full of nails for breakfast. Without any milk!</option>
                         </select>
                     </div>
+                    <!-- Trying radio buttons would work well, but this current style worked best.-->
                 </fieldset>
             </div>
             <button type="submit" name="button2" id = "button2" class="btn btn-primary">Submit!</button>
@@ -87,6 +90,7 @@
                 Link to Project 1 and Commenting Etiqutte in Github:
                 <a class="btn btn-primary" href="https://github.com/twright2023/WrightTyrellProject1.git" role="button">GitHub</a>
             </div>
+
         </form>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
