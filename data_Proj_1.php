@@ -13,7 +13,7 @@
              */
             function gender_data(){
                 global $db;
-                $prep_selectgen = $db->prepare("SELECT gender FROM BringbackHSR");
+                $prep_selectgen = $db->prepare("SELECT gender FROM BringBackHSRC");
                 $prep_selectgen->execute();
                 $gender_data = $prep_selectgen->fetchAll();
                 $gender_array["Male"] = 0;
@@ -64,7 +64,7 @@
              */
             function tough_data(){
                 global $db;
-                $prep_selectgen = $db->prepare("SELECT tough FROM BringbackHSR");
+                $prep_selectgen = $db->prepare("SELECT tough FROM BringBackHSRC");
                 $prep_selectgen->execute();
                 $tough_data = $prep_selectgen->fetchAll();
                 $tough_array["1, I'm Spongebob!"] = 0;
@@ -116,7 +116,7 @@
 
             print("<h1>Results are in...</h1>");
 
-            $prep_selectnum = $db->prepare("SELECT count(email) FROM BringbackHSR");
+            $prep_selectnum = $db->prepare("SELECT count(email) FROM BringBackHSRC");
             $prep_selectnum->execute();
             $num_data = $prep_selectnum->fetchAll();
             $num = $num_data[0][0];
