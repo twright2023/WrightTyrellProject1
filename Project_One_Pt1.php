@@ -23,7 +23,7 @@
 
                     <div>
                         <label for="birthdate-here">Age: </label> <!--I noticed the radio buttons were silly. And I thought a nice date would be much better.-->
-                        <input type="date" name="Birthdate" id="birthdate-here">
+                        <input type="number" name="Birthdate" id="birthdate-here">
                     </div>
                     <!-- A text type would work, but it wouldn't be appropriate for a birthdate.-->
 
@@ -62,7 +62,7 @@
 
                     <div>
                         <h3>Share your experience</h3> <!--My second.-->
-                        <textarea id="experience">Share your experience with Hostess Sweet Rolls.
+                        <textarea name="Experience" id="experience">Share your experience with Hostess Sweet Rolls.
                         </textarea>
                     </div>
 
