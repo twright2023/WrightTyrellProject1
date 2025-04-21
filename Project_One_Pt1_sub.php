@@ -7,53 +7,58 @@
     <body>
 
         <?php
-            include ('Errors.php');
-            $hashed_pass = '$2y$10\$l73hyb4LYd8FhIoIMS/NaeqvA9NB//Bw4wyclHmk2Pz2KRzTcM43y';
+            $hashed_pass = '$2y$10$l73hyb4LYd8FhIoIMS/NaeqvA9NB//Bw4wyclHmk2Pz2KRzTcM43y';
             require ('dbconfig_Proj_1.php');
             $db = connectDB();
 
             /**
-             * Validating will return as empty if no errors occurred; if not, the following errors will accure.
+             * Validating will return as empty if no errors occurred; if not, the following errors will occur.
              */
 
             function validate(){
                 #All the password stuff!
                 global $hashed_pass;
-                if(!password_verify($_POST["Password"], $hashed_pass)){
+                if(!password_verify($_POST["Password"], '$2y$10$l73hyb4LYd8FhIoIMS/NaeqvA9NB//Bw4wyclHmk2Pz2KRzTcM43y')){
                     return "Incorrect Password.";
+
                 }
-                $password = $_POST["Password"]; 
-                if(strlen($password) <8) { 
-                    return "Your password isn't long enough! It must be at least 8 characters."; 
-                } 
-                elseif (strlen($password) >100) { 
-                    return "You're not going to remember that, I promise you. Best change it."; 
-                }
-                elseif ($password == ""){ 
-                    return "You need to enter a password!"; 
-                } 
-                elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
-                    return "Please have at least one number in your password!";
-                }
-                if (!preg_match('/0-9/', $password)) {
-                    return "";
-                } else {
-                    return "Please have at least one number in your password!";
-                }
+                /**
+                *$password = $_POST["Password"]; 
+                *if(strlen($password) <8) { 
+                    *return "Your password isn't long enough! It must be at least 8 characters."; 
+                *} 
+                *elseif (strlen($password) >100) { 
+                    *return "You're not going to remember that, I promise. Best change it."; 
+                *}
+                *elseif ($password == ""){ 
+                    *return "You need to enter a password!"; 
+                *} 
+                *elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
+                    *return "Please have at least one number in your password!";
+                *}
+                *if (!preg_match('/0-9/', $password)) {
+                    *return "";
+                *} else {
+                    *return "Please have at least one number in your password!";
+                *}
+                */
 
                 #Is everything filled in? No?
                 if(($_POST["Name"] == NULL) or ($_POST["Birthdate"] == NULL) or ($_POST["gender"] == "") or ($_POST["Username"] == NULL) or ($_POST["Email"] == NULL) or ($_POST["Password"] == NULL) or ($_POST["ScaleToOneTen"] == NULL) or ($_POST["Experience"] == NULL) or ($_POST["tough"] == NULL)){
                     return "You have not filled in all questions. Fill in everything, including the funny.";
                 }
                 #Let's make it all make sense!
+            }
+
+            function big_funny(){
                 # Age
                 if(strlen($_POST["Birthdate"]) >150){
-                    return "You are either lying to me, or you're in the future where people get to live extremely old and still be able to press buttons and or make any type of movement."; 
+                    return "You are either lying to me or you're in the future where people get to live extremely old and still be able to press buttons and make any movement."; 
                 }
                 
                 # Gender
-                if(strlen($_POST["gender"]) != 2){
-                    return "Please select your prefered gender.";
+                if(strlen($_POST["gender"]) >2){
+                    return "Please select your preferred gender.";
                 }
 
                 #Email
@@ -85,13 +90,13 @@
             }
 
             /**
-             * Sanitization changes the data entered by the user. You should ALWAYS sanitize your data to prevent a hacking method and a song I like from Ghost Data
+             * Sanitization changes the data entered by the user. You should ALWAYS sanitize your data to prevent a hacking method, and a song I like from Ghost Data
              * DDOS (attacks)
              */
 
             function sanitize(){
                 $name = htmlentities($_POST["Name"]);
-                $age = (int)$_POST["Age"];
+                $age = (int)$_POST["Birthdate"];
                 $gender = htmlentities($_POST["gender"]);
                 $email = filter_var($_POST["Email"], FILTER_VALIDATE_EMAIL);
                 $scale = (int)$_POST["ScaleToOneTen"];
@@ -106,11 +111,12 @@
              */
             function add_data(){
                 global $db;
-                $prep_insert = $db->prepare("INSERT INTO BringBackHSRC (Name, Age, Gender, Email, Scale, Experience, Salty) VALUES (?, ?, ?, ?, ?, ?, ?);")
+                $prep_insert = $db->prepare("INSERT INTO BringBackHSR (Name, Age, Gender, Email, Scale, Experience, Salty) VALUES (?, ?, ?, ?, ?, ?, ?);");
                 $prep_insert->execute(sanitize());
             }
 
             if(validate()==""){
+                print(big_funny());
                 print("<div>Thank you so much for your submission.</div>");
                 print("<div><a href='data_Proj_1.php'>View data page here</a></div>");
                 add_data();
